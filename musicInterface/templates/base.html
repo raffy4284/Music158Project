@@ -1,0 +1,118 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Composr</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="{% static 'musicInterface/style.css' %}" rel="stylesheet" type="text/css">
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  {% include "components/navbar.html" %} 
+  {% include "components/jumbotronPage.html" %}
+  <body>
+
+    {% block content %}
+    {% endblock %}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <script type = "text/javascript" src = 'https://code.jquery.com/jquery-1.11.3.min.js'></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type = "text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+    <script>
+      var NotePositionMap = {};
+      var numStaves = 2;
+      function Staff(width, identifier, start,numLines, spaceSize, notes){
+        this.noteStart = Array(10,50);
+        this.canvas = $("#"+identifier)[0];
+        this.numLines = numLines;
+        this.spaceSize = spaceSize;
+        this.width = width;
+        this.start = start;
+        this.numLines = numLines;
+        this.noteXpositions = Array();
+        this.notes = notes; 
+        this.lastNotePosition = Array(10,50);
+        this.extendStaff = function(){
+          //to do 
+        }
+        this.isInBetweenNotes = function(noteLocationX){
+
+          return this.noteXpositions.indexOf(noteLocationX)
+        }
+        this.removeNote = function(noteLocation){
+          this.notes.splice(noteLocation,1)
+        }
+        this.draw = function(){
+          var ctx = this.canvas.getContext("2d"); 
+          for (var i = 0; i < this.numLines; i++){
+            ctx.beginPath();
+            ctx.moveTo(this.start[0], this.start[1]+this.spaceSize*i);
+            ctx.lineTo(this.start[0]+this.width, this.start[1]+this.spaceSize*i);
+            ctx.stroke(); 
+          }
+        }
+
+      }
+      function Note(notes, duration, velocity,id){
+        this.notes = notes;
+        this.duration = duration;
+        this.velocity = velocity;
+        this.id = "#note"+id 
+        this.horizontalMargins = 5;
+        this.verticalMargins = 5;
+	      this.draw = function(NoteLocationX, NoteLocationY,StaffCanvas){
+            var context = StaffCanvas.getContext("2d");
+            context.save();
+            context.scale(1.5,1);
+            context.beginPath();
+            context.ellipse(NoteLocationX,NoteLocationY,5, 2.5, 45 * Math.PI/-180, 0, 2 * Math.PI);
+            context.fillStyle = "black";
+            context.fill();
+            context.stroke();
+	      }
+      }
+     
+      start = Array(0,50)
+      $("#staff1").width(10000);
+      width = $("#staff1").width();
+      var staff = new Staff(width,"staff1", start, 5, 10, Array());
+      staff.draw()
+      var staff2 = new Staff(width,"staff2", start, 5, 10, Array());
+      staff2.draw();
+      var note1 = new Note(50, 0.5, 20, "1")
+      note1.draw(5,60,staff.canvas)
+      var note2 = new Note(20,0.5,30,"2");
+      var note3 = new Note(20,0.5,30,"3");
+      note3.draw(10,30,staff.canvas)
+      note2.draw(10,70,staff.canvas)
+      $("#staff1")[0].addEventListener("click",function(e){
+        var pos = getMousePos(staff.canvas, e);
+        note1.draw(pos.x,pos.y,staff.canvas);
+      });
+      function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+      }
+
+    </script>
+  </body>
+</html>
+
+
