@@ -1,0 +1,15 @@
+@import url(http://db.onlinewebfonts.com/c/e103c9b092075f838f7f07afca695af7?family=MusiQwik);
+@font-face {font-family: "MusiQwik";
+    src: url("http://db.onlinewebfonts.com/t/e103c9b092075f838f7f07afca695af7.eot");
+    src: url("http://db.onlinewebfonts.com/t/e103c9b092075f838f7f07afca695af7.eot?#iefix") format("embedded-opentype"),
+    url("http://db.onlinewebfonts.com/t/e103c9b092075f838f7f07afca695af7.woff") format("woff"),
+    url("http://db.onlinewebfonts.com/t/e103c9b092075f838f7f07afca695af7.ttf") format("truetype"),
+    url("http://db.onlinewebfonts.com/t/e103c9b092075f838f7f07afca695af7.svg#MusiQwik") format("svg");
+}
+#staff1{
+  font-family: "MusiQwik";
+  border:1px solid black;
+  height:100px;
+  width: 100%;
+  font-size: 40px;
+}
