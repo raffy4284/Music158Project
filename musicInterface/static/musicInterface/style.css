@@ -1,3 +1,4 @@
+{% load static %}
 @import url(http://db.onlinewebfonts.com/c/e103c9b092075f838f7f07afca695af7?family=MusiQwik);
 @font-face {font-family: "MusiQwik";
     src: url("http://db.onlinewebfonts.com/t/e103c9b092075f838f7f07afca695af7.eot");
@@ -6,10 +7,19 @@
     url("http://db.onlinewebfonts.com/t/e103c9b092075f838f7f07afca695af7.ttf") format("truetype"),
     url("http://db.onlinewebfonts.com/t/e103c9b092075f838f7f07afca695af7.svg#MusiQwik") format("svg");
 }
+ 
 #staff1{
   font-family: "MusiQwik";
   border:1px solid black;
   height:100px;
   width: 100%;
   font-size: 40px;
+  resize: none;
+}
+#keyMusicMap table tr td:nth-child(odd){
+  font-family: "MusiQwik";
+  font-size: 40px;
+}
+#keyMusicMap table tr td:nth-child(even){
+  font-size:30px;
 }

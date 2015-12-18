@@ -25,17 +25,19 @@
   </head>
   {% include "components/navbar.html" %} 
   {% include "components/jumbotronPage.html" %}
+
   <body>
 
     {% block content %}
     {% endblock %}
+    {% include "components/keyMappingModal.html" %} 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type = "text/javascript" src = 'https://code.jquery.com/jquery-1.11.3.min.js'></script> 
     <script type = "text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
-
     <script type = "text/javascript" src = 'https://code.jquery.com/jquery-1.11.3.min.js'></script> 
+    <script type = "text/javascript" src = "{% static 'musicInterface/style.js' %}"></script> 
   </body>
 </html>
 
