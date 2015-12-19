@@ -8,9 +8,11 @@ var play = document.getElementById("play");
 var numStaves = 1;
 $("#play").submit(function(e){
   var tempo = document.getElementById("tempo").value
+  
   var score = {};
   var max = {};
   for(var i = 0; i < numStaves; i++){
+    var instrument = document.getElementById((i+1).toString()+"instrument").value
     var notes = document.getElementById("staff1").value;
     var bar = 0; 
     for(var j = 0; j < notes.length; j++){
@@ -540,9 +542,9 @@ $("#play").submit(function(e){
     score[i]={}
     score[i]["max"] = max 
     score[i]["NumNotes"] = bar
-
   }
   score["tempo"]=tempo
+  score["instrument"]=instrument
   $.ajax({
     url: "http://localhost:8000/m158/process",
     type: "GET",
