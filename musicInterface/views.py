@@ -1,8 +1,14 @@
+import sys
+sys.path.append("/Users/raffy4284/Desktop/M158Project/musicInterface/thirst/code/libo")
 from django.shortcuts import render
 from django.http import HttpResponse
-from .OSC import OSCClient, OSCBundle
+from socket import socket, AF_INET, SOCK_DGRAM
+import odot as o
 
+sock = socket(AF_INET, SOCK_DGRAM)
 
+def send(message, port = 54345):
+    sock.sendto(message.getBytes(), ('127.0.0.1', port))
 
 def index(request):
     return render(request, 'musicInterface/index.html',{})
@@ -11,25 +17,23 @@ def process(request):
     if request.method == "POST":
         return HttpResponse("ERROR 405");
     else: 
-        client = OSCClient()
-        client.connect(("localhost", 54345))
-
-        ### Create a bundle:
-        bundle = OSCBundle()
-        bundle.append({'addr': "/frequency", 'args':[440.]})
-        bundle.append({'addr': "/envelope/line", 'args': [1., 20, 0., 1000]})
-        client.send(bundle)
         numNotes = int(request.GET["score[0][NumNotes]"])
-        score = OSCBundle()
+    
         noteList = list()
         for note in range(0,numNotes):
-            notes = OSCBundle()
             noteVals = int(request.GET["score[0][max]["+str(note)+"][notes]"])
             noteVel = int(request.GET["score[0][max]["+str(note)+"][vel]"])
             noteDur = float(request.GET["score[0][max]["+str(note)+"][dur]"])
-            notes.append({'addr': "/note", 'args':["FL"]})
-            notes.append({'addr': "/vel", 'args': [noteVel]})
-            notes.append({'addr': "/dur", 'args': [noteDur]})
-            noteList.append(notes)
-            client.send(notes)
-        return HttpResponse("FLAG");
+            oNote = o.message("/note",noteVals)
+            oVel = o.message("/vel", noteVel)
+            oDur = o.message("/dur", noteDur)
+            noteList.append([oNote,oVel,oDur])
+ 
+        Score = o.bundle(messages = [o.message("/notes", [o.bundle(messages = odotMessage) for odotMessage in noteList])])
+        send(Score)
+
+        return HttpResponse("SUCCESS");
+
+
+
+
