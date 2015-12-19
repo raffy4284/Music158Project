@@ -18,7 +18,8 @@ def process(request):
         return HttpResponse("ERROR 405");
     else: 
         numNotes = int(request.GET["score[0][NumNotes]"])
-    
+        tempo = int(request.GET["score[tempo]"])
+        milliseconds = int(((60./tempo * 1000.*100000)/100000)*4)
         noteList = list()
         for note in range(0,numNotes):
             noteVals = int(request.GET["score[0][max]["+str(note)+"][notes]"])
@@ -27,9 +28,10 @@ def process(request):
             oNote = o.message("/note",noteVals)
             oVel = o.message("/vel", noteVel)
             oDur = o.message("/dur", noteDur)
-            noteList.append([oNote,oVel,oDur])
- 
+            oTempo = o.message("/tempo",milliseconds)
+            noteList.append([oNote,oVel,oDur, oTempo])
         Score = o.bundle(messages = [o.message("/notes", [o.bundle(messages = odotMessage) for odotMessage in noteList])])
+        print Score
         send(Score)
 
         return HttpResponse("SUCCESS");

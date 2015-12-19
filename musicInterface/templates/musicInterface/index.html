@@ -1,7 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="panel panel-default">
-  <div class="panel-heading">First Voicing</div>
+
+
+<div class="panel panel-default" id="1voice">
+    <div class="panel-heading">
+
+      <div class="form-group">
+        <label for="1voiceLabel">Staff Name</label>
+        <input id="1voiceLabel" value="voice1" type="text" class="form-control" style="width:10%;" ></input>
+
+        <label for="1instrument">Instrument</label>
+        <select class="selectpicker form-control" id="1instrument">
+          <option>Violin</option>
+          <option>Clarinet</option>
+        </select>
+
+      </div>
+       
+
+
+    </div>
     <textarea id="staff1" class="panel-body" wrap="off"></textarea>
   </div> 
 </div>
