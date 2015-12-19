@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 34.0, 78.0, 1372.0, 729.0 ],
+		"rect" : [ 34.0, 79.0, 1372.0, 729.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -41,13 +41,13 @@
 					"fontface" : 0,
 					"fontsize" : 12.0,
 					"id" : "obj-40",
-					"linecount" : 6,
+					"linecount" : 7,
 					"maxclass" : "o.display",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 336.0, 184.0, 150.0, 102.0 ],
-					"text" : "/Violin/note : 67,\n/Violin/vel : 1,\n/Violin/dur : 0.0625,\n/Violin/tempo : 2000",
+					"patching_rect" : [ 336.0, 184.0, 150.0, 116.0 ],
+					"text" : "/Clarinet/note : 59,\n/Clarinet/vel : 1,\n/Clarinet/dur : 0.5,\n/Clarinet/tempo : 2000",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -69,7 +69,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 34.0, 78.0, 1372.0, 729.0 ],
+						"rect" : [ 34.0, 79.0, 1372.0, 729.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -96,6 +96,7 @@
 						"tags" : "",
 						"style" : "",
 						"subpatcher_template" : "",
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-100",
@@ -3298,6 +3299,15 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-42", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-37", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-11", 1 ],
 									"disabled" : 0,
 									"hidden" : 0,
@@ -3317,7 +3327,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 347.0, 386.0, 128.0, 22.0 ],
+					"patching_rect" : [ 307.0, 415.0, 128.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -3338,7 +3348,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 721.0, 178.0, 150.0, 33.0 ],
+					"patching_rect" : [ 1105.0, 172.0, 150.0, 33.0 ],
 					"style" : "",
 					"text" : "this shows support for chords!"
 				}
@@ -6638,7 +6648,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 108.0, 402.0, 141.0, 22.0 ],
+					"patching_rect" : [ 92.0, 415.0, 141.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -6660,7 +6670,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 727.0, 485.0, 196.0, 21.0 ],
+					"patching_rect" : [ 1111.0, 479.0, 196.0, 21.0 ],
 					"style" : ""
 				}
 
@@ -6723,7 +6733,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "FullPacket" ],
-					"patching_rect" : [ 803.0, 364.0, 83.0, 22.0 ],
+					"patching_rect" : [ 1187.0, 358.0, 83.0, 22.0 ],
 					"style" : "",
 					"text" : "o.route /value"
 				}
@@ -6736,7 +6746,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 799.0, 295.0, 129.0, 22.0 ],
+					"patching_rect" : [ 1183.0, 289.0, 129.0, 22.0 ],
 					"style" : "",
 					"text" : "o.listenumerate /notes"
 				}
@@ -6752,7 +6762,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 501.0, 149.0, 218.0, 133.0 ],
+					"patching_rect" : [ 885.0, 143.0, 218.0, 133.0 ],
 					"saved_bundle_data" : [ 35, 98, 117, 110, 100, 108, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -44, 47, 110, 111, 116, 101, 115, 0, 0, 44, 46, 46, 0, 0, 0, 0, 96, 35, 98, 117, 110, 100, 108, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 47, 110, 111, 116, 101, 0, 0, 0, 44, 105, 105, 105, 105, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 63, 0, 0, 0, 67, 0, 0, 0, 70, 0, 0, 0, 16, 47, 118, 101, 108, 0, 0, 0, 0, 44, 105, 0, 0, 0, 0, 0, 2, 0, 0, 0, 20, 47, 100, 117, 114, 0, 0, 0, 0, 44, 100, 0, 0, 63, -29, 51, 51, 51, 51, 51, 51, 0, 0, 0, 96, 35, 98, 117, 110, 100, 108, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 47, 110, 111, 116, 101, 0, 0, 0, 44, 105, 105, 105, 105, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 63, 0, 0, 0, 67, 0, 0, 0, 70, 0, 0, 0, 16, 47, 118, 101, 108, 0, 0, 0, 0, 44, 105, 0, 0, 0, 0, 0, 2, 0, 0, 0, 20, 47, 100, 117, 114, 0, 0, 0, 0, 44, 100, 0, 0, 63, -29, 51, 51, 51, 51, 51, 51 ],
 					"saved_bundle_length" : 232,
 					"text" : "/notes : [{\n\t/note : [60, 63, 67, 70],\n\t/vel : 2,\n\t/dur : 0.6\n}, {\n\t/note : [60, 63, 67, 70],\n\t/vel : 2,\n\t/dur : 0.6\n}]",
@@ -6767,7 +6777,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 650.0, 457.0, 42.0, 22.0 ],
+					"patching_rect" : [ 1034.0, 451.0, 42.0, 22.0 ],
 					"style" : "",
 					"text" : "*~ 0.5"
 				}
@@ -6780,7 +6790,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 581.0, 343.0, 24.0, 24.0 ],
+					"patching_rect" : [ 965.0, 337.0, 24.0, 24.0 ],
 					"style" : ""
 				}
 
@@ -6791,7 +6801,7 @@
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 529.5, 563.0, 45.0, 45.0 ],
+					"patching_rect" : [ 913.5, 557.0, 45.0, 45.0 ],
 					"style" : ""
 				}
 
@@ -10105,7 +10115,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 568.5, 402.0, 99.0, 22.0 ],
+					"patching_rect" : [ 952.5, 396.0, 99.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",

@@ -1,0 +1,20 @@
+IMPORTANT:
+* go into musicInterface/views.py and update the location of thirst. I included the thirst folder but I couldn't import it relatively, so you will have to change it in order for messaging to work
+* after that go back to the root folder, and run in terminal:
+
+   python manage.py runserver 
+
+* next open web broswer, and go to http://localhost:8000/m158/
+
+*Lastly, going back to the root folder open this maxPatch:
+  OPEN_ME_FOR_MAX/OPEN_ME.maxpat
+
+*make sure you increase the volume!
+
+*TADA!
+
+* link to character mapping: http://www.fontspace.com/robert-allgeyer/musiqwik/10184.charmap
+------side note: I only have the notes working. Anything else entered will be ignored!----- 
+
+
+*hope this runs smoothly!
